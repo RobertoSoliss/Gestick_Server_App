@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getProductUrl, getCategorias, getProductoId, getEmpUrl, getMarcas,getidAdmin,saveAdmin,saveProducto, getProducto, getEmpleadoId, getProductos, getTasks, getTask, getTaskCount, saveTask, deleteTasks, updateTasks, getAdmin} from '../controllers/tasks.js';
+import { updateProducto, deleteProductos, getProductUrl, getCategorias, getProductoId, getEmpUrl, getMarcas, getidAdmin, saveAdmin, saveProducto, getProducto, getEmpleadoId, getProductos, getTasks, getTask, getTaskCount, saveTask, deleteTasks, updateTasks, getAdmin } from '../controllers/tasks.js';
 
 const router = Router();
 
@@ -97,7 +97,7 @@ router.get('/tasks/count', getTaskCount);
  *    tags: [Tasks]
  */
 
-router.get('/tasksComplete/:idAdmin',getTasks);
+router.get('/tasksComplete/:idAdmin', getTasks);
 
 /**
  * @swagger
@@ -107,7 +107,7 @@ router.get('/tasksComplete/:idAdmin',getTasks);
  *    tags: [Tasks]
  */
 
-router.get('/tasks/:idEmpleado',getTask);
+router.get('/tasks/:idEmpleado', getTask);
 
 /**
  * @swagger
@@ -128,6 +128,7 @@ router.post('/tasks', saveTask);
  */
 
 router.delete('/tasks/:idEmpleado', deleteTasks);
+router.delete('/productos/:idProductos', deleteProductos);
 
 /**
  * @swagger
@@ -138,6 +139,9 @@ router.delete('/tasks/:idEmpleado', deleteTasks);
  */
 
 router.put('/tasks/:id', updateTasks);
+
+router.put('/productos/:id', updateProducto);
+
 
 export default router;
 

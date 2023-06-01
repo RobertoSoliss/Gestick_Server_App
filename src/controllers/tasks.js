@@ -152,6 +152,17 @@ const deleteTasks = async (req, res) => {
     /*res.send("hello world from deleteTasks")
     console.log("hello world from deleteTasks"); */
 }
+
+const deleteProductos = async (req, res) => {
+    const connection = await connect();
+    const result = await connection.query(`DELETE FROM productos WHERE idProductos = ${req.params.idProductos}`);
+    /**    console.log(`EL RESULTADO DEL ID OBTENIDO EN DELETE ES: ${req.params.idEmpleado}`); */
+    res.sendStatus(204);
+
+    /*res.send("hello world from deleteTasks")
+    console.log("hello world from deleteTasks"); */
+}
+
 const updateTasks = async (req, res) => {
     const connection = await connect()
     const results = await connection.query(`UPDATE empleado SET EmNombre='${req.body.EmNombre}', EmApat='${req.body.EmApat}', EmAmat='${req.body.EmAmat}',EmContrasenna='${req.body.EmContrasenna}',EmURLimg='${req.body.EmURLimg}' WHERE idEmpleado=${req.body.idEmpleado}`)
@@ -161,4 +172,12 @@ const updateTasks = async (req, res) => {
     /*res.send("hello world from updateTasks")
     console.log("hello world from updateTasks"); */
 }
-export {getProductUrl, getCategorias, getProductoId, getEmpUrl, getMarcas, getidAdmin, saveAdmin, saveProducto, getProducto, getEmpleadoId, getProductos, getAdmin, getTasks, getTask, getTaskCount, saveTask, deleteTasks, updateTasks } 
+
+
+const updateProducto = async (req, res) => {
+    const connection = await connect()
+    const results = await connection.query(`UPDATE productos SET PrNombre = '${req.body.PrNombre}', PrExistencias = ${req.body.PrExistencias}, PrPrecio = ${req.body.PrPrecio}, PrDescripcion = '${req.body.PrDescripcion}', Marca_idMarca = ${req.body.Marca_idMarca}, Categoria_idCategoria = ${req.body.Categoria_idCategoria}, PrURLimg = '${req.body.PrURLimg}' WHERE idProductos = ${req.body.idProductos}`)
+    //console.log(results)
+    res.sendStatus(204);
+}
+export { updateProducto, deleteProductos, getProductUrl, getCategorias, getProductoId, getEmpUrl, getMarcas, getidAdmin, saveAdmin, saveProducto, getProducto, getEmpleadoId, getProductos, getAdmin, getTasks, getTask, getTaskCount, saveTask, deleteTasks, updateTasks } 

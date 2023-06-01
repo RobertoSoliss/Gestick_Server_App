@@ -3,11 +3,18 @@ dotenv();
 console.log(process.env.NICKNAME)
 
 export const dbdates={
-    user:process.env.USER || 'root',
+  /**
+   *   user:process.env.USER || 'root',
     password:process.env.PASSWORD || 'celisSOLIS1027',
     host:process.env.HOST || 'localhost',
     port:process.env.DBPORT || 3306,
     database:process.env.DBNAME || 'mydb'
+   */
+    user:process.env.USER || 'root',
+    password:process.env.PASSWORD || 'rfbhAEG03UOygPEGBteZ',
+    host:process.env.HOST || 'containers-us-west-197.railway.app',
+    port:process.env.DBPORT || 7632,
+    database:process.env.DBNAME || 'railway'
 }
 
 /*export const PORT = process.env.PORT || 3000
