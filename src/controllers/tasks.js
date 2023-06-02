@@ -35,7 +35,7 @@ const getProductUrl = async (req, res) => {
 const saveAdmin = async (req, res) => {
     const connection = await connect();
     //console.log(`LAS RESPUESTAS DEL BACK EN saveAdmin SON: ${req.body.idEmpleado}, ${req.body.EmNombre},  ${req.body.EmApat},  ${req.body.EmAmat}, ${req.body.EmContrasenna}, ${req.body.Admin_idAdmin}, ${req.body.Eimagen_idEimagen}`)
-    const [results] = await connection.query("insert into ADMIN (idAdmin,AdNombre,AdAppat,AdApMat,AdEmail,AdContrasenna,Gestick_idGestick,Aactivo) values (?,?,?,?,?,?,?,?)", [req.body.idAdmin, req.body.AdNombre, req.body.AdAppat, req.body.AdApmat, req.body.AdEmail, req.body.AdContrasenna, 1, 1]);
+    const [results] = await connection.query("insert into Admin (idAdmin,AdNombre,AdAppat,AdApMat,AdEmail,AdContrasenna,Gestick_idGestick,Aactivo) values (?,?,?,?,?,?,?,?)", [req.body.idAdmin, req.body.AdNombre, req.body.AdAppat, req.body.AdApmat, req.body.AdEmail, req.body.AdContrasenna, 1, 1]);
 
     res.json({
         id: results.insertId,
